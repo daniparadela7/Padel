@@ -1,0 +1,38 @@
+<section class="noticias">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-newspaper-o"></i>Noticias</h2>
+			</div>
+			<div class="noticia col-md-12 text-center">
+				<div class="col-md-3">
+					<img src="/assets/images/noticias/noticia1.jpg">
+				</div>
+				<div class="col-md-9">
+					<p class="text-right"><i class="fa fa-calendar"></i>20/06/2016 20:00</p>
+					<h3 class="nombre-noticia">Golpe del mes con Lucas Bracchi</h3>
+					<div class="descripcion-noticia">
+						<p>Abrimos inscripciones para el primer torneo Trofeo Master 3000 el cual se celebrará del día 3 de Junio hasta el día 5 de Junio de 2016.</p>
+						<p>Podrán participar todos los jugadores ya que abrimos inscripciones para todas las divisiones.</p>
+						<p>Habrá premios en metálico para los ganadores y finalistas y sorteos para todos los participantes.</p>
+						<p>El torneo contará con Guillermo Lahoz, jugador profesional de WPT, que hará un partido de exhibición junto a otros jugadores de primera división.</p>
+					</div>
+				</div>
+			</div>
+			<div class="noticia col-md-12 text-center" ng-repeat="noticia in noticias">
+				<a href="/noticias/{{noticia.pretty_url}}">
+					<div class="col-md-3">
+						<img ng-src="{{'data:' + noticia.imagen[0].filetype + ';base64,' + noticia.imagen[0].base64}}">
+					</div>
+					<div class="col-md-9">
+						<p class="text-right"><i class="fa fa-calendar"></i>{{noticia.fecha_noticiaFormato}}</p>
+						<h3 class="nombre-noticia">{{noticia.titulo}}</h3>
+						<div class="descripcion-noticia">
+							<p>{{noticia.contenido}}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

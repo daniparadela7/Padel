@@ -1,0 +1,18 @@
+<section class="noticia">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina">{{noticia.titulo}}</h2>
+				<p class="text-right col-md-offset-1 col-md-10"><i class="fa fa-calendar"></i>{{noticia.fecha_noticiaFormato}}</p>
+			</div>
+			<div class="noticia col-md-12 text-center">
+				<img ng-src="{{'data:' + noticia.imagen[0].filetype + ';base64,' + noticia.imagen[0].base64}}">
+			</div>
+			<div class="noticia col-md-offset-1 col-md-10 text-center">
+				<div class="descripcion-noticia">
+					<p>{{noticia.contenido}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

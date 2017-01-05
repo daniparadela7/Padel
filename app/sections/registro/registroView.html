@@ -1,0 +1,87 @@
+<section class="registro">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-user"></i>Registro</h2>
+			</div>
+
+			<div class="col-md-offset-1 col-md-10">
+				<form class="form-registro" role="form">
+					<div class="form-group">
+		                <div class="input-registro col-md-5">
+		                    <label>Nombre:</label>
+		                    <input type="text" class="form-control" ng-model="nombre" required>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>Apellido:</label>
+		                    <input type="text" class="form-control" ng-model="apellido" required>
+		                </div>
+	            	</div>
+	            	<div class="form-group">
+		                <div class="input-registro col-md-5">
+		                    <label>Fecha de nacimiento:</label>
+		                    <input type="date" ng-model="fecha_nacimiento" type='text' class="form-control" required />
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>Teléfono:</label>
+		                    <input type="text" class="form-control" ng-model="telefono" required>
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="input-registro col-md-5">
+                            <div class="text-center col-md-6">
+                                <input type="radio" name="genero" value="Masculino" ng-model="genero" autocomplete="off" required>
+                                <div class="botones-modalidad">
+                                    <i class="fa fa-male"></i>
+                                    <p>Masculino</p>
+                                </div>
+                            </div>
+                            <div class="text-center col-md-6">
+                                <input type="radio" name="genero" value="Femenino" ng-model="genero" autocomplete="off" required>
+                                <div class="botones-modalidad">
+                                    <i class="fa fa-female"></i>
+                                    <p>Femenino</p>
+                                </div>
+                            </div>
+                    	</div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>División:</label>
+		                    <select class="form-control" ng-model="division" required>
+		                        <option value="">Selecciona tú división</option>
+		                        <option value="1">1ª División</option>
+		                        <option value="2">2ª División</option>
+		                        <option value="3">3ª División</option>
+		                        <option value="4">4ª División</option>
+		                        <option value="5">5ª División</option>
+		                </select>
+		                </div>
+		        	</div>
+		        	 <div class="clearfix"></div>
+		        	<div class="form-group">
+		                <div class="input-registro col-md-5">
+		                    <label>Email:</label>
+		                    <input type="email" class="form-control" ng-model="email" required>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>Contraseña:</label>
+		                    <input type="password" class="form-control" ng-model="password" required="">
+		                </div>
+                	</div>
+		        	<div class="form-group">
+		        		<div class="input-registro col-md-5">
+		                    <label>Foto de Perfil:</label>
+		                    <input type="file" ng-model="imagen" base-sixty-four-input>
+                    		<span ng-show="form.files.$error.maxsize">La imagen no puede ocupar más de 9000 KB</span>
+		                </div>
+		                <div class="input-registro col-md-5">
+		                    <img ng-show="imagen != undefined" ng-src="{{'data:' + imagen.filetype + ';base64,' + imagen.base64}}" class="carga-imagen profile-image img-circle">
+		                </div>
+                	</div>
+                	<div class="col-md-12 boton-form text-center">
+                        <button class="btn btn-lg btn-primary" ng-click="Registro()" type="submit">Registrarse</button>
+                    </div>
+	            </form>
+			</div>
+		</div>
+	</div>
+</section>

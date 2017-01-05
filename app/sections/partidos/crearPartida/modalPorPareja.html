@@ -1,0 +1,41 @@
+<div class="modalCrearPartidaTipo">
+    <div class="modal-header">
+        <h3 class="modal-title">Crear partida personalizada: Tipo de partida</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 configuracion-tipo">
+                    <div class="btn-group">
+                        <div class="col-md-6 text-center">
+                            <button ng-click="openParejavsPareja('lg')" class="btn boton-select">
+                                <div class="botones-modalidad">
+                                    <i class="fa fa-male"></i>
+                                    <i class="fa fa-male"></i>
+                                    <span>vs</span>
+                                    <i class="fa fa-male"></i>
+                                    <i class="fa fa-male"></i>
+                                    <p>Pareja vs Pareja</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button ng-click="openParejavsUniversal('lg')" class="btn boton-select">
+                                <div class="botones-modalidad"> 
+                                    <i class="fa fa-male"></i>
+                                    <i class="fa fa-male"></i>
+                                    <span>vs</span>
+                                    <i class="fa fa-users"></i>
+                                    <p>Pareja vs Universal</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="atras()" type="submit">Atrás</button>
+    </div>
+</div>

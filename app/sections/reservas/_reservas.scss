@@ -1,0 +1,82 @@
+.reservas{
+	padding: 0;
+	padding-bottom: 30px;
+	.titulo-pagina{
+		padding: 10px;
+	}
+	.flechas{
+		padding-top: 45px;
+		font-size: 27px;
+		cursor: pointer;
+	}
+	.info-reservas{
+		padding-bottom: 10px;
+		span{
+			margin-left: 7px;
+			padding-left: 20px;
+			&.misReservas{
+				border: 1px solid #003760;
+				background-color: #406988;
+			}
+			&.otrasReservas{
+				border: 1px solid #B5232D;
+				background-color: #C85A62;
+			}
+		}
+		.input-registro{
+			padding-top: 0;
+			select{
+				padding: 5px;
+			}
+		}
+	}
+	.table{
+		thead{
+			display: none;
+		}
+		th{
+			padding: 0;
+			border-top: 0;
+			text-align: center;
+		}
+		td{
+			padding: 0;
+		}
+		.calendar{
+			width: 130px;
+			.fc-axis {
+				display: none;
+			}
+			.fc-view-container, .fc-view, table{
+				width: 130px;
+			}
+		}
+		.calendar.primero{
+			width: 178px;
+			float: left;
+			.fc-axis {
+				display: table-cell;
+				font-weight: bold;
+				text-align: center;
+				&.fc-widget-header{
+					width: 47px !important;
+				}
+			}
+			td{
+				width: 130px;
+			}
+			.fc-view-container, .fc-view, table{
+				width: 178px;
+			}
+		}
+		.fc-scroller{
+			overflow-y: hidden !important;
+		}
+		.fc-toolbar, .fc-day-header{
+			display: none;
+		}
+		.fc-content{
+			text-align: center;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+<section class="reservas" ng-init="actualDay=diaHoy">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-1">
+					<i class="flechas text-left fa fa-arrow-left" ng-click="anteriorDia()" ng-show="actualDay!=diaHoy"></i>
+				</div>
+				<h2 class="titulo-pagina col-md-10"><i class="fa fa-calendar"></i>Reservas {{actualDay}}</h2>
+				<i class="col-md-1 flechas text-right fa fa-arrow-right" ng-click="siguienteDia()" ng-show="actualDay!=diaMas7"></i>
+			</div>
+			<div class="col-md-12 info-reservas">
+				<div class="col-md-2"><p>Mis reservas <span class="misReservas"></span></p></div>
+				<div class="col-md-2"><p>Otras reservas <span class="otrasReservas"></span></p></div>
+			</div>
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th ng-repeat="pista in [1,2,3,4,5,6,7,8,9,10,11,12]">Pista {{pista}}</th>
+						</tr>
+						<tr>
+							<td id="pista-{{pista}}" class="calendar" ng-repeat="pista in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-class="{'primero': $first}"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

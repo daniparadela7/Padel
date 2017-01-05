@@ -1,0 +1,29 @@
+.jugadores{
+	padding: 30px 0;
+	a{
+		color: #333;
+	}
+	.buscador{
+		padding-bottom: 20px;
+	}
+	.contenido-jugadores{
+		.jugador{
+			padding-top: 50px;
+			img{
+				max-width: 200px;
+				margin-bottom: 10px;
+				box-shadow: 2px 2px 33px #888;
+			}
+			p{
+				color: #000;
+				text-transform: uppercase;
+				font-weight: 600;
+				margin-bottom: 4px;
+			}
+			i{
+				padding: 0 10px;
+				font-size: 20px;
+			}
+		}
+	}
+}

@@ -1,0 +1,219 @@
+$icon-font-path: '/assets/fonts/';
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/components-font-awesome/scss/font-awesome.scss";
+@import "bower_components/sass-material-colors/sass/_sass-material-colors.scss";
+// endbower
+
+//MIXINS
+@import "mixins/_hamburger.scss";
+@import "mixins/_sticky-footer.scss";
+
+//PAGES
+@import "../../sections/header/_header.scss";
+@import "../../sections/footer/_footer.scss";
+@import "../../sections/registro/_registro.scss";
+@import "../../sections/login/_login.scss";
+@import "../../sections/home/_home.scss";
+@import "../../sections/reservas/_reservas.scss";
+@import "../../sections/reservas/reservaModal/_modalReserva.scss";
+@import "../../sections/partidos/_modalCrearPartida.scss";
+@import "../../sections/escuela/_escuela.scss";
+@import "../../sections/clasificacion/_clasificacion.scss";
+@import "../../sections/torneos/_torneos.scss";
+@import "../../sections/torneos/torneo/_modalTorneo.scss";
+@import "../../sections/jugadores/_jugadores.scss";
+@import "../../sections/jugadores/perfilJugador/_jugador.scss";
+@import "../../sections/noticias/_noticias.scss";
+@import "../../sections/noticias/noticia/_noticia.scss";
+@import "../../sections/usuario/editarPerfil/_editarPerfil.scss";
+@import "../../sections/usuario/notificaciones/_modalNotificaciones.scss";
+
+
+
+body.modal-open {
+  margin-right: 0 !important;
+  padding-right: 8px !important;
+}
+
+a, a:hover, a:focus{
+	text-decoration: none;
+	outline: 0px !important;
+}
+
+li{
+	list-style-type: none;
+}
+
+.subMenu{
+	.nav-tabs{
+		border-color: #ddd;
+		li{
+			font-weight: 400;
+			text-align: center;
+			a{
+				color: #888;
+			}
+			&.active{
+				a{
+					color: #B5232D;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+#wrapper{
+	font-family: 'Roboto Slab', Arial, sans-serif;
+	width: 100%;
+	background: #fff;
+	color: #333;
+	font-size: 14px;
+	letter-spacing: 0.6px;
+	font-weight: 400;
+	overflow: hidden;
+	line-height: 1.75;
+}
+
+.page-content{
+	padding-top: 78px;
+}
+
+.titulo-pagina{
+	padding-bottom: 25px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	i{
+		font-size: 25px;
+		padding-right: 9px;
+	}
+}
+
+.linea-centro{
+	    margin: auto;
+	    height: 2px;
+	    background: #B5232D;
+	    margin-top: 20px;
+	    margin-bottom: 25px;
+	    position: relative;
+	    width: 50px;
+}
+
+
+.input-registro{
+	padding: 20px 15px;
+	label{
+		font-size: 15px;
+		letter-spacing: 0.6px;
+	}
+	.form-control{
+		height: auto;
+		padding: 10px;
+		font-size: 16px;
+	}
+}
+.checkbox{
+	a{
+		font-size: 13px;
+		&:hover, &:focus{
+			color: #337ab7;
+		}
+	}
+}
+.boton-form{
+	padding-top: 30px;
+	button{
+		background-color: #B5232D;
+		border-color: #B5232D;
+		&:hover, &:focus{
+			background-color: #B5232D !important;
+			border-color: #B5232D !important;
+		}
+	}
+}
+
+
+.boton-select{
+	background-color: #333;
+	border-color: #333;
+	color: #ccc;
+	&:hover, &:focus{
+		color: #b2b2b2;
+	}
+	&.active{
+		background-color: #B5232D !important;
+		border-color: #B5232D !important;
+		color: #fff;
+		font-weight: 600;
+	}
+}
+
+.modal-title{
+	text-align: center;
+	font-family: 'Roboto Slab', Arial, sans-serif;
+}
+.modal-header{
+	background-color: #B5232D;
+	color: #fff;
+}
+.modal-body{
+	th, td{
+		font-family: 'Roboto Slab', Arial, sans-serif;
+		text-align: center;
+	}
+	th{
+		border-top: 0 !important;
+	}
+}
+.modal-footer{
+	border-top: 0px !important;
+	button{
+		background-color: #B5232D;
+		border-color: #B5232D;
+		&:hover, &:focus{
+			background-color: #B5232D !important;
+			border-color: #B5232D !important;
+		}
+	}
+}
+
+.rating{
+	margin: 0;
+	padding: 0;
+	color: #ddd;
+	font-size: 20px;
+	text-shadow: .05em .05em #aaa;
+	list-style-type: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: #fd0;
+}
+
+.mensajeError{
+	text-align: center;
+	color: #B5232D;
+}
+
+.mensajeCorrecto{
+	text-align: center;
+	color: #4F8A10;
+}

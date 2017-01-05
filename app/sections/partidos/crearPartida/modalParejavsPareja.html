@@ -1,0 +1,34 @@
+<div class="modalCrearPartidaPista">
+    <div class="modal-header">
+        <h3 class="modal-title">Crear partida personalizada: Pareja vs Pareja</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 configuracion-pista">
+                <div class="dibujo-pista">
+                    <div id="jugador1" class="jugador">
+                        <img src="/assets/images/perfil.jpg" class="profile-image img-circle">
+                        <label>Dani Paradela</label>
+                    </div>
+                    <div id="jugador2" class="jugador">
+                        <img src="/assets/images/perfil.jpg" class="profile-image img-circle">
+                        <label>David Lara</label>
+                    </div>
+                    <div class="boton-form">
+                        <button class="btn boton-select" ng-click="retarParejas()" type="submit">Retar</button>
+                    </div>
+                </div>
+                <div class="config-partida">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value=""><span>Permitir que se unan parejas NO retadas</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="atras()" type="submit">Atrás</button>
+    </div>
+</div>

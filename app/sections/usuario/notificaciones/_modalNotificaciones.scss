@@ -1,0 +1,48 @@
+.modalNotificaciones, .modalNotificacion{
+	.confirmado{
+		color: #58B957;
+	}
+	.pendiente{
+		color: #F2AE43;
+	}
+	.cancelado{
+		color: #DB524B;
+	}
+	.negrita{
+		font-weight: 600;
+		background-color: #eeb;
+	}
+	.delete{
+		font-size: 17px;
+		color: #DB524B;
+	}
+	i{
+		cursor: pointer;
+	}
+	.mensaje-notificacion{
+		font-size: 18px;
+	}
+	label{
+		&.pareja{
+			cursor: pointer;
+		    width: 160px;
+		    margin: 0 40px;
+		    margin-top: 20px;
+		    border-radius: 4px;
+		    border: 1px solid #D0D0D0;
+		    overflow:auto;
+		    text-align:center;
+		    span{
+			    font-size: 14px;
+			    display:block;
+			    padding: 8px 0;
+			    background-color:#333;
+				color:#fff;
+				&:hover{
+					background-color:#B5232D;
+					color:#fff;
+				}
+		    }
+		}
+	}
+}

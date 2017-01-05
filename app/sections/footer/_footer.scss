@@ -1,0 +1,7 @@
+#footer {
+	background-color: red;
+	position: relative;
+	color: white;
+}
+
+@include sticky-footer(50px);

@@ -1,0 +1,41 @@
+<div class="modalReserva">
+    <div class="modal-header">
+        <h3 class="modal-title">Reserva {{fechaHora}}</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="text-center">
+                        <div class="col-md-4 input-registro">
+                            <label>Pista:</label>
+                            <p>{{pista}}</p>
+                        </div>
+                        <div class="col-md-4 input-registro">
+                            <label>Fecha:</label>
+                            <p>{{fecha}}</p>
+                        </div>
+                        <div class="col-md-4 input-registro">
+                            <label>Hora:</label>
+                            <p>{{hora}}</p>
+                        </div>
+                    </div>
+                    <div class="input-registro col-md-6">
+                        <label>Duración:</label>
+                        <select ng-model="tiempoDuracion" class="form-control">
+                            <option value="">Selecciona una duración</option>
+                            <option ng-repeat="tiempo in tiempoPista" ng-value="tiempo.valor">{{tiempo.tiempo}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 input-registro text-center">
+                        <label>Precio:</label>
+                        <p>10€</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-disabled="tiempoDuracion == undefined" ng-click="crearReserva()" type="submit">Reservar</button>
+    </div>
+</div>

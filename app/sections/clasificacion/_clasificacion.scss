@@ -1,0 +1,87 @@
+.clasificacion{
+	padding: 30px 0;
+	.buscador{
+		padding-bottom: 20px;
+	}
+	.genero, .division{
+		padding: 15px;
+		label{
+			cursor: pointer;
+			float:left;
+		    width:95px;
+		    margin:6px;
+		    background-color:#EFEFEF;
+		    border-radius:4px;
+		    border:1px solid #D0D0D0;
+		    overflow:auto;
+		    text-align:center;
+		    display: block;
+			position: relative;
+			overflow: hidden;
+		    span{
+			    font-size: 14px;
+			    display:block;
+			    padding: 10px 0;
+		    }
+		    i{
+		    	font-size: 32px;
+		    }
+		    input{
+		    	position:absolute;
+    			top:-20px;
+    			&:checked + span{
+					background-color:#B5232D;
+    				color:#fff;
+    			}
+    			
+		    }
+		    &.boton-genero, &.boton-division{
+		    	background-color:#333;
+    			color:#fff;
+		    }
+		}
+	}
+	.division{
+		padding-top: 30px;
+			label{
+				width: 40px;
+				span{
+					padding: 7px 0;
+				}
+			}
+			label{
+				&.boton-global{
+					width: 70px;
+				}
+				span{
+					padding: 7px 0;
+				}
+			}
+		}
+	.table-responsive{
+		padding-top: 10px;
+		.usuarioRanking{
+			background-color: #B5232D;
+			color: #fff;
+			.ranking-nombre{
+				a{
+					color:#fff;
+				}
+			}
+		}
+		th, td{
+			text-align: center;
+		}
+		.ranking-nombre{
+			text-align: justify;
+			a{
+				color:#333;
+			}
+			img{
+				width: 40px;
+				height: 40px;
+				margin: 0 15px;
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+<section class="jugadores">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-users"></i>Jugadores</h2>
+			</div>
+			<div class="col-md-offset-9 col-md-3 buscador">
+				<label>Buscar:</label>
+				<input type="search" ng-model="usuarioSeleccionado" placeholder="Busca a algún jugador" uib-typeahead="jugador as jugador.nombre for jugador in usuarios | filter:$viewValue | limitTo:5" typeahead-loading="cargandoJugadores" typeahead-on-select="irAlUsuario()" typeahead-no-results="noResultados" class="form-control">
+			    <i ng-show="cargandoJugadores" class="glyphicon glyphicon-refresh"></i>
+			    <div ng-show="noResultados">
+			    	<i class="glyphicon glyphicon-remove"></i><span>No se han encontrado resultados</span>
+			    </div>
+			</div>
+			<div class="col-md-12">
+				<div class="subMenu">
+					<ul class="nav nav-tabs">
+						<li class="col-md-2 active"><a href="" id="1" data-target="#Div1" data-toggle="tab">1ª División</a></li>
+						<li class="col-md-2"><a href="" id="2" data-target="#Div2" data-toggle="tab">2ª División</a></li>
+						<li class="col-md-2"><a href="" id="3" data-target="#Div3" data-toggle="tab">3ª División</a></li>
+						<li class="col-md-2"><a href="" id="4" data-target="#Div4" data-toggle="tab">4ª División</a></li>
+						<li class="col-md-2"><a href="" id="5" data-target="#Div5" data-toggle="tab">5ª División</a></li>
+						<li class="col-md-2"><a href="" id="amigos" data-target="#amigos" data-toggle="tab">Amigos</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab-content">
+				<div id="Div1" class="tab-pane fade in active">
+					<div class="col-md-12 contenido-jugadores">
+						<div class="col-md-3 jugador text-center {{jugador.pretty_url}}" ng-repeat="jugador in porDivision1 | orderBy: ['nombre', 'apellido']">
+							<a href="jugadores/{{jugador.pretty_url}}"><img ng-src="{{'data:' + jugador.imagen[0].filetype + ';base64,' + jugador.imagen[0].base64}}" class="profile-image">
+							<p>{{jugador.nombre}} {{jugador.apellido}}</p></a>
+							<i class="fa fa-user-plus"></i>
+							<i class="fa fa-envelope"></i>
+						</div>
+					</div>
+				</div>
+				<div id="Div2" class="tab-pane fade">
+					<div class="col-md-12 contenido-jugadores">
+						<div class="col-md-3 jugador text-center {{jugador.pretty_url}}" ng-repeat="jugador in porDivision2 | orderBy: ['nombre', 'apellido']">
+							<a href="jugadores/{{jugador.pretty_url}}"><img ng-src="{{'data:' + jugador.imagen[0].filetype + ';base64,' + jugador.imagen[0].base64}}" class="profile-image">
+							<p>{{jugador.nombre}} {{jugador.apellido}}</p></a>
+							<i class="fa fa-user-plus"></i>
+							<i class="fa fa-envelope"></i>
+						</div>
+					</div>
+				</div>
+				<div id="Div3" class="tab-pane fade">
+					<div class="col-md-12 contenido-jugadores">
+						<div class="col-md-3 jugador text-center {{jugador.pretty_url}}" ng-repeat="jugador in porDivision3 | orderBy: ['nombre', 'apellido']">
+							<a href="jugadores/{{jugador.pretty_url}}"><img ng-src="{{'data:' + jugador.imagen[0].filetype + ';base64,' + jugador.imagen[0].base64}}" class="profile-image">
+							<p>{{jugador.nombre}} {{jugador.apellido}}</p></a>
+							<i class="fa fa-user-plus"></i>
+							<i class="fa fa-envelope"></i>
+						</div>
+					</div>
+				</div>
+				<div id="Div4" class="tab-pane fade">
+					<div class="col-md-12 contenido-jugadores">
+						<div class="col-md-3 jugador text-center {{jugador.pretty_url}}" ng-repeat="jugador in porDivision4 | orderBy: ['nombre', 'apellido']">
+							<a href="jugadores/{{jugador.pretty_url}}"><img ng-src="{{'data:' + jugador.imagen[0].filetype + ';base64,' + jugador.imagen[0].base64}}" class="profile-image">
+							<p>{{jugador.nombre}} {{jugador.apellido}}</p></a>
+							<i class="fa fa-user-plus"></i>
+							<i class="fa fa-envelope"></i>
+						</div>
+					</div>
+				</div>
+				<div id="Div5" class="tab-pane fade">
+					<div class="col-md-12 contenido-jugadores">
+						<div class="col-md-3 jugador text-center {{jugador.pretty_url}}" ng-repeat="jugador in porDivision5 | orderBy: ['nombre', 'apellido']">
+							<a href="jugadores/{{jugador.pretty_url}}"><img ng-src="{{'data:' + jugador.imagen[0].filetype + ';base64,' + jugador.imagen[0].base64}}" class="profile-image">
+							<p>{{jugador.nombre}} {{jugador.apellido}}</p></a>
+							<i class="fa fa-user-plus"></i>
+							<i class="fa fa-envelope"></i>
+						</div>
+					</div>
+				</div>
+				<div id="amigos" class="tab-pane fade">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>Nombre</th>
+									<th>Victorias</th>
+									<th>Derrotas</th>
+									<th>% Victorias</th>
+									<th>Puntos</th>
+								</tr>
+								<tr>
+									<td>Dani Paradela</td>
+									<td>7</td>
+									<td>3</td>
+									<td>70%</td>
+									<td>32</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

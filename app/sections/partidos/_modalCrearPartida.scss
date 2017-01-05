@@ -1,0 +1,101 @@
+.modalCrearPartida, .modalCrearPartidaTipo, .modalCrearPartidaPista{
+	.modal-body{
+		padding: 50px 0;
+		.configuracion-inicial{
+			.input-registro{
+				label{
+					padding-bottom: 8px;
+				}
+				span{
+					padding-top: 8px;
+				}
+				.hora{
+					width: 85px;
+				}
+				.botones-modalidad{
+					display: inline-block;
+					padding-top: 10px;
+					.mixto{
+						display: inline;
+					}
+					i{
+						font-size: 40px;
+						padding-bottom: 10px;
+					}
+				}
+			}
+		}
+		.configuracion-tipo{
+			.btn-group{
+				display: block;
+				.boton-select{
+					border-radius: 4px !important;
+					&:hover, &:focus{
+						color: #fff;
+						background-color: #B5232D;
+						border-color: #B5232D;
+					}
+					.botones-modalidad{
+						padding: 55px 50px;
+						i{
+							font-size: 40px;
+							padding-bottom: 10px;
+						}
+					}
+				}
+			}
+			&.porPareja{
+				padding-top: 40px;
+			}
+		}
+		.configuracion-pista{
+			.dibujo-pista{
+				background-image: url('../images/pista.png');
+			    background-repeat: no-repeat;
+			    background-position: 20% 10%;
+			    background-size: cover;
+			    height: 360px;
+			    .boton-form{
+			    	position: absolute;
+			    	top: 175px;
+			    	right: 250px;
+			    }
+			    .jugador{
+					position: absolute;
+					img{
+						max-width: 65px;
+					}
+					label{
+						color: #fff;
+					}
+					&#jugador1{
+						top: 140px;
+						left: 160px;
+					}
+					&#jugador2{
+						top: 240px;
+						left: 160px;
+					}
+				}
+			}
+			.config-partida{
+				span{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+.modalCrearPartidaTipo{
+	.modal-footer{
+		button{
+			float: left;
+			width: 85px;
+		}
+	}
+}
+.modalCrearPartidaPista{
+	.modal-body{
+		padding: 10px 0;
+	}
+}

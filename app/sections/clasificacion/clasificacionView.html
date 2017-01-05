@@ -1,0 +1,136 @@
+<section class="clasificacion">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-cubes"></i>Ranking</h2>
+			</div>
+			<div class="col-md-offset-9 col-md-3 buscador">
+				<label>Buscar:</label>
+				<input type="search" ng-model="usuarioSeleccionado" placeholder="Busca a algún jugador" uib-typeahead="usuario as usuario.nombre for usuario in usuarios | filter:$viewValue | limitTo:5" typeahead-loading="cargandoJugadores" typeahead-on-select="irAlUsuario()"  typeahead-no-results="noResultados" class="form-control">
+			    <i ng-show="cargandoJugadores" class="glyphicon glyphicon-refresh"></i>
+			    <div ng-show="noResultados">
+			    	<i class="glyphicon glyphicon-remove"></i><span>No se han encontrado resultados</span>
+			    </div>
+			</div>
+			<div class="col-md-12">
+				<div class="subMenu">
+					<ul class="nav nav-tabs">
+						<li class="col-md-4 active" ng-click="irAlUsuario()"><a href="" data-target="#division" data-toggle="tab">Ranking por División</a></li>
+						<li class="col-md-4" ng-click="irAlUsuario()"><a href="" data-target="#global" data-toggle="tab">Ranking Global</a></li>
+						<li class="col-md-4" ng-click="irAlUsuario()"><a href="" data-target="#parejas" data-toggle="tab">Ranking por Parejas</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab-content">
+				<div id="division" class="tab-pane active col-md-12">
+					<div class="input-registro col-md-12">
+                        <div class="genero col-md-4" ng-init="rankingGenero=Mixto">
+                        	<label class="boton-genero"><input type="radio" ng-checked="rankingGenero==Mixto" ng-model="rankingGenero" value="Mixto" ng-click="rankingPorDivision(rankingDivision)" name="geneG"><span><i class="fa fa-users"></i><br>Todos</span></label>
+                        	<label class="boton-genero"><input type="radio" ng-model="rankingGenero" value="Masculino" ng-click="rankingPorDivisionMasculino()" name="geneG"><span><i class="fa fa-male"></i>Masculino</span></label>
+						    <label class="boton-genero"><input type="radio" ng-model="rankingGenero" value="Femenino" ng-click="rankingPorDivisionFemenino()" name="geneG"><span><i class="fa fa-female"></i>Femenino</span></label>
+						</div>
+						<div class="division col-md-8" ng-init="rankingDivision=divUsuario">
+                        	<label class="boton-division"><input ng-click="rankingPorDivision(1)" ng-checked="rankingDivision==1" ng-model="rankingDivision" value="1" type="radio" name="divi"><span>1ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingPorDivision(2)" ng-checked="rankingDivision==2" ng-model="rankingDivision" value="2" type="radio" name="divi"><span>2ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingPorDivision(3)" ng-checked="rankingDivision==3" ng-model="rankingDivision" value="3" type="radio" name="divi"><span>3ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingPorDivision(4)" ng-checked="rankingDivision==4" ng-model="rankingDivision" value="4" type="radio" name="divi"><span>4ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingPorDivision(5)" ng-checked="rankingDivision==5" ng-model="rankingDivision" value="5" type="radio" name="divi"><span>5ª</span></label>
+						</div>
+                    </div>
+					<div class="table-responsive col-md-12">
+						<table class="table table-striped">
+							<tr>
+								<th>Posición</th>
+								<th>Jugador</th>
+								<th>Victorias</th>
+								<th>Derrotas</th>
+								<th>% Victorias</th>
+								<th>Puntos</th>
+							</tr>
+							<tr ng-repeat="usuario in porDivision | orderBy: ['puntos', 'porcentajeVictorias']" class="{{usuario.pretty_url}}" ng-class="{ 'usuarioRanking': usuario._id == user._id}">
+								<td>{{$index+1}}º</td>
+								<td class="ranking-nombre"><a href="/jugadores/{{usuario.pretty_url}}"><img ng-src="{{'data:' + usuario.imagen[0].filetype + ';base64,' + usuario.imagen[0].base64}}" class="profile-image img-circle">{{usuario.nombre}}</a></td>
+								<td>{{usuario.partidos_ganados}}</td>
+								<td>{{usuario.partidos_perdidos}}</td>
+								<td ng-show="usuario.partidos_ganados == 0">0%</td>
+								<td ng-show="usuario.partidos_ganados != 0">{{usuario.porcentajeVictorias}}%</td>
+								<td>{{usuario.puntos}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div id="global" class="tab-pane fade col-md-12">
+					<div class="input-registro col-md-12">
+                        <div class="genero col-md-12" ng-init="rankingGeneroG=mixtoG">
+                        	<label class="boton-genero"><input type="radio" ng-model="rankingGeneroG" ng-checked="rankingGeneroG==mixto" value="mixtoG" ng-click="rankingGlobal()" name="gene"><span><i class="fa fa-users"></i><br>Todos</span></label>
+                        	<label class="boton-genero"><input type="radio" ng-model="rankingGeneroG" value="masculinoG" ng-click="rankingGlobalMasculino()" name="gene"><span><i class="fa fa-male"></i>Masculino</span></label>
+						    <label class="boton-genero"><input type="radio" ng-model="rankingGeneroG" value="femeninoG" ng-click="rankingGlobalFemenino()" name="gene"><span><i class="fa fa-female"></i>Femenino</span></label>
+						</div>
+                    </div>
+					<div class="table-responsive col-md-12">
+						<table class="table table-striped">
+							<tr>
+								<th>Posición</th>
+								<th>Nombre</th>
+								<th>División</th>
+								<th>Victorias</th>
+								<th>Derrotas</th>
+								<th>% Victorias</th>
+								<th>Puntos</th>
+							</tr>
+							<tr ng-repeat="usuario in global | orderBy: ['puntos', 'porcentajeVictorias']" class="{{usuario.pretty_url}}" ng-class="{ 'usuarioRanking': usuario._id == user._id}">
+								<td>{{$index+1}}º</td>
+								<td class="ranking-nombre"><a href="/jugadores/{{usuario.pretty_url}}"><img ng-src="{{'data:' + usuario.imagen[0].filetype + ';base64,' + usuario.imagen[0].base64}}" class="profile-image img-circle">{{usuario.nombre}}</a></td>
+								<td>{{usuario.division}}ª</td>
+								<td>{{usuario.partidos_ganados}}</td>
+								<td>{{usuario.partidos_perdidos}}</td>
+								<td ng-show="usuario.partidos_ganados == 0">0%</td>
+								<td ng-show="usuario.partidos_ganados != 0">{{usuario.porcentajeVictorias}}%</td>
+								<td>{{usuario.puntos}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div id="parejas" class="tab-pane fade col-md-12">
+					<div class="input-registro col-md-12">
+                        <div class="genero col-md-6" ng-init="rankingGeneroP=TodosP">
+                        	<label class="boton-genero"><input type="radio" ng-checked="rankingGeneroP==TodosP" ng-model="rankingGeneroP" value="TodosP" ng-click="rankingParejasGlobalTodos()" name="geneP"><span><i class="fa fa-users"></i><br>Todos</span></label>
+                        	<label class="boton-genero"><input type="radio" ng-model="rankingGeneroP" value="MasculinoP" ng-click="rankingParejasGlobalMasculino()" name="geneP"><span><i class="fa fa-male"></i>Masculino</span></label>
+						    <label class="boton-genero"><input type="radio" ng-model="rankingGeneroP" value="FemeninoP" ng-click="rankingParejasGlobalFemenino()" name="geneP"><span><i class="fa fa-female"></i>Femenino</span></label>
+						    <label class="boton-genero"><input type="radio" ng-model="rankingGeneroP" value="MixtoP" ng-click="rankingParejasGlobalMixto()" name="geneP"><span><i class="fa fa-male"></i><i class="fa fa-female"></i><br>Mixto</span></label>
+						</div>
+						<div class="division col-md-6">
+							<label class="boton-division boton-global"><input ng-click="rankingParejasTodos()" ng-checked="rankingDivisionP==global" ng-model="rankingDivision" value="global" type="radio" name="diviP"><span>Global</span></label>
+                        	<label class="boton-division"><input ng-click="rankingParejasPorDivision(1)" ng-checked="rankingDivisionP==1 || divisionParejaUsuario==1" ng-model="rankingDivisionP" value="1" type="radio" name="diviP"><span>1ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingParejasPorDivision(2)" ng-checked="rankingDivisionP==2 || divisionParejaUsuario==2" ng-model="rankingDivisionP" value="2" type="radio" name="diviP"><span>2ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingParejasPorDivision(3)" ng-checked="rankingDivisionP==3 || divisionParejaUsuario==3" ng-model="rankingDivisionP" value="3" type="radio" name="diviP"><span>3ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingParejasPorDivision(4)" ng-checked="rankingDivisionP==4 || divisionParejaUsuario==4" ng-model="rankingDivisionP" value="4" type="radio" name="diviP"><span>4ª</span></label>
+						    <label class="boton-division"><input ng-click="rankingParejasPorDivision(5)" ng-checked="rankingDivisionP==5 || divisionParejaUsuario==5" ng-model="rankingDivisionP" value="5" type="radio" name="diviP"><span>5ª</span></label>
+						</div>
+                    </div>
+					<div class="table-responsive col-md-12">
+						<table class="table table-striped">
+							<tr>
+								<th>Posición</th>
+								<th>Pareja</th>
+								<th>Victorias</th>
+								<th>Derrotas</th>
+								<th>% Victorias</th>
+								<th>Puntos</th>
+							</tr>
+							<tr ng-repeat="pareja in parejasGlobal | orderBy: ['puntos', 'porcentajeVictorias']" class="{{pareja.pretty_url1}} {{pareja.pretty_url2}}" ng-class="{ 'usuarioRanking': pareja.id_jugador1 == user._id, 'usuarioRanking': pareja.id_jugador2 == user._id}">
+								<td>{{$index+1}}º</td>
+								<td class="ranking-nombre"><img ng-src="{{'data:' + pareja.foto_jugador1[0].filetype + ';base64,' + pareja.foto_jugador1[0].base64}}" class="profile-image img-circle">{{pareja.nombre}}<img ng-src="{{'data:' + pareja.foto_jugador2[0].filetype + ';base64,' + pareja.foto_jugador2[0].base64}}" class="profile-image img-circle"></td>
+								<td>{{pareja.partidos_ganados}}</td>
+								<td>{{pareja.partidos_perdidos}}</td>
+								<td ng-show="pareja.partidos_ganados == 0">0%</td>
+								<td ng-show="pareja.partidos_ganados != 0">{{pareja.porcentajeVictorias}}%</td>
+								<td>{{pareja.puntos}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,143 @@
+.jugador{
+	padding: 30px 0;
+	h3{
+		padding-bottom: 5px;
+		font-size: 28px; 
+	}
+	.img-perfil{
+		padding-bottom: 30px;
+		img{
+			max-width: 400px;
+			box-shadow: 2px 2px 33px #888;
+		}
+	}
+	.añadir{
+		font-size: 14px;
+		font-style: italic;
+		text-decoration: underline;
+		a{
+			color: #666;
+		}
+	}
+	#ficha{
+		padding-top: 50px;
+		.datos{
+			.nombre-jugador{
+				font-size: 37px;
+			}
+			.actividad{
+				font-size: 25px;
+				padding-bottom: 50px;
+				label{
+					cursor: pointer;
+				    width: 130px;
+				    margin: 6px;
+				    border-radius: 4px;
+				    border: 1px solid #D0D0D0;
+				    overflow:auto;
+				    text-align:center;
+				    span{
+					    font-size: 13px;
+					    display:block;
+					    padding: 8px 0;
+					    background-color:#333;
+		    			color:#fff;
+		    			&:hover{
+		    				background-color:#B5232D;
+		    				color:#fff;
+		    			}
+				    }
+				}
+			}
+			.datos-principales, .datos-secundarios{
+				padding-top: 15px;
+				p{
+					padding-top: 15px;
+					span{
+						font-size: 17px;
+						font-weight: 600;
+					}
+				}
+			}
+			.datos-secundarios{
+				.pareja{
+					a{
+						color: #333;
+						text-decoration: underline;
+					}
+				}
+				.star-rating{
+					padding-left: 37px;
+				}
+			}
+		}
+		.estadisticas, .clasificaciones{
+			padding: 50px 0;
+			.estadistica, .clasificacion{
+				padding-top: 20px;
+				span{
+					display: block;
+				    font-weight: 300;
+				    font-size: 35px;
+				    line-height: 1;
+				    padding-top: 25px;
+				}
+				p{
+					font-size: 18px;
+	    			padding-top: 20px;
+	    			line-height: 1;
+				}
+			}
+			.clasificacion{
+				padding-bottom: 0;
+				.añadir{
+					font-size: 23px;
+					padding-bottom: 10px;
+				}
+			}
+		}
+		.trofeos{
+			padding: 50px 0;
+			.trofeo{
+				padding-top: 40px;
+				img{
+					margin: 0 auto;
+					width: 100px;
+					height: 100px;
+					margin-bottom: 12px;
+				}
+				p{
+					font-size: 15px;
+	    			padding-top: 20px;
+	    			line-height: 1;
+	    			&.subtitulo-trofeo{
+	    				padding-top: 10px;
+	    				font-size: 15px;
+	    			}
+				}
+			}
+		}
+	}
+	#partidos{
+		.partidosPendientes, .partidosJugados{
+			padding-top: 50px;
+			.partido{
+				padding-top: 40px;
+				img{
+					max-width: 350px;
+					height: auto;
+					padding-bottom: 12px;
+				}
+				.confirmado, .ganado{
+					color: #58B957;
+				}
+				.pendiente{
+					color: #F2AE43;
+				}
+				.perdido{
+					color: #DB524B;
+				}
+			}
+		}
+	}
+}

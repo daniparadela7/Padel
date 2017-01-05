@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 col-xs-9 sin-padding">
+      <div class="logo">
+        <a href="/"><img class="img-responsive" src="/assets/images/logo.png" alt=""></a>
+      </div>
+    </div>
+
+    <div class="col-md-10 sin-padding">
+      <div class="menu">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/reservas">Reservar</a></li>
+          <li class="menu-partidos dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Partidos</a>
+              <ul class="dropdown-menu">
+                  <li><a href="" ng-click="openCrearPartida('lg')">Crear Partida</a></li>
+                  <li><a href="" ng-click="openUnirsePartida('lg')">Unirse a Partida</a></li>
+                  <li><a href="" ng-click="openPartidoRapido('lg')">Partido Rápido</a></li>
+              </ul>
+          </li>
+          <li><a href="/clasificacion">Clasificación</a></li>
+          <li><a href="/torneos">Torneos</a></li>
+          <li><a href="/ranking">Ranking</a></li>
+          <li><a href="/jugadores">Jugadores</a></li>
+          <li><a href="/escuela">Escuela</a></li>
+          <li><a href="/noticias">Noticias</a></li>
+        </ul>
+      </div>
+      <div class="menu-usuario" ng-if="authentificated == true">
+        <ul>
+          <li class="user dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-user"></i></a>
+              <ul class="dropdown-menu">
+                  <li><a href="usuario/editarPerfil"><i class="fa fa-gear"></i>Editar perfil</a></li>
+                  <li><a href="" ng-click="cerrarSesion()"><i class="fa fa-sign-out"></i>Cerrar sesión</a></li>
+              </ul>
+          </li>
+          <li><a href="" ng-click="openNotificaciones('lg')"><i class="fa fa-bell"></i><div ng-if="numNotificaciones != 0" class="numero-notificaciones">{{numNotificaciones}}</div></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-3 header clearfix">
+    <button type="button" class="navbar-toggle c-hamburger c-hamburger--htx" ng-click="toggleVisible()">
+        <span>toggle menu</span>
+    </button>
+    <div class="headerBG" ng-show="visibleMenu">
+      <div class="menuContent">
+        <ul class="cl-effect-5">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/reservas">Reservar</a></li>
+          <li class="menu-partidos dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Partidos</a>
+              <ul class="dropdown-menu">
+                  <li><a href="" ng-click="openCrearPartida('lg')">Crear Partida</a></li>
+                  <li><a href="" ng-click="openUnirsePartida('lg')">Unirse a Partida</a></li>
+                  <li><a href="" ng-click="openPartidoRapido('lg')">Partido Rápido</a></li>
+              </ul>
+          </li>
+          <li><a href="/clasificacion">Clasificación</a></li>
+          <li><a href="/torneos">Torneos</a></li>
+          <li><a href="/ranking">Ranking</a></li>
+          <li><a href="/jugadores">Jugadores</a></li>
+          <li><a href="/escuela">Escuela</a></li>
+          <li><a href="/noticias">Noticias</a></li>
+        </ul>
+      </div>
+  </div>
+</div>

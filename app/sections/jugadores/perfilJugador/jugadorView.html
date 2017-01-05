@@ -1,0 +1,160 @@
+<section class="jugador">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="subMenu">
+					<ul class="nav nav-tabs">
+						<li class="col-md-6 active"><a href="" data-target="#ficha" data-toggle="tab">Ficha Técnica</a></li>
+						<li class="col-md-6"><a href="" data-target="#partidos" data-toggle="tab">Partidos</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content">
+			<div id="ficha" class="tab-pane fade in active">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="img-perfil">
+							<img ng-src="{{'data:' + datosUsuario.imagen[0].filetype + ';base64,' + datosUsuario.imagen[0].base64}}" class="profile-image">
+						</div>
+					</div>
+					<div class="datos col-md-7">
+							<div class="actividad col-md-12">
+								<label><span>Añadir amigos</span></label>
+								<label><span>Enviar mensaje</span></label>
+								<label><span>Retar</span></label>
+								<label><span>Bloquear</span></label>
+							</div>
+						<h3 class="nombre-jugador">{{datosUsuario.nombre}} {{datosUsuario.apellido}}</h3>
+						<div class="col-md-6">
+							<div class="datos-principales">
+								<p>Fecha de nacimiento: <span>{{fecha_nacimiento}}</span></p>
+								<p>División: <span>{{datosUsuario.division}}ª</span></p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="datos-secundarios">
+								<p>Posición: <span ng-if="datosUsuario.posicion">{{datosUsuario.posicion}}</span><span ng-if="!datosUsuario.posicion" class="añadir">Sin especificar</span></p>
+								<p>Pareja: <span ng-if="parejaUsuario" class="pareja"><a href="/jugadores/{{parejaUsuario.pretty_url}}">{{parejaUsuario.nombre}} {{parejaUsuario.apellido}}</a></span><span ng-if="!parejaUsuario" class="añadir">Sin pareja</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row estadisticas text-center">
+					<div class="col-md-12">
+						<h3>Estadísticas</h3>
+						<div class="linea-centro"></div>
+					</div>
+					<div class="col-md-12">
+						<div class="estadistica col-md-3 col-sm-6 col-xs-12">
+							<span ng-if="datosUsuario.partidos_jugados == 0">0</span>
+							<span ng-if="datosUsuario.partidos_jugados != 0" in-view="jugados={{datosUsuario.partidos_jugados}}" counter value="autoStartVar" to="jugados" duration="1300">{{ autoStartVar | number:0 }}</span>
+							<p>Partidos Jugados</p>
+						</div>
+						<div class="estadistica col-md-3 col-sm-6 col-xs-12">
+							<span ng-if="datosUsuario.partidos_ganados == 0">0</span>
+							<span ng-if="datosUsuario.partidos_ganados != 0" in-view="ganados={{datosUsuario.partidos_ganados}}" counter value="autoStartVar2" to="ganados" duration="1300">{{ autoStartVar2 | number:0 }}</span>
+							<p>Partidos Ganados</p>
+						</div>
+						<div class="estadistica col-md-3 col-sm-6 col-xs-12">
+							<span ng-if="datosUsuario.partidos_perdidos == 0">0</span>
+							<span ng-if="datosUsuario.partidos_perdidos != 0" in-view="perdidos={{datosUsuario.partidos_perdidos}}" counter value="autoStartVar3" to="perdidos" duration="1300">{{ autoStartVar3 | number:0 }}</span>
+							<p>Partidos Perdidos</p>
+						</div>
+						<div class="estadistica col-md-3 col-sm-6 col-xs-12">
+							<span ng-if="porcentajeVictorias == 0">0</span>
+							<span ng-if="porcentajeVictorias != 0" in-view="victorias={{porcentajeVictorias}}" counter value="autoStartVar4" to="victorias" duration="1300">{{ autoStartVar4 | number:0 }}%</span>
+							<p>% Victorias</p>
+						</div>
+					</div>
+				</div>
+				<div class="row clasificaciones text-center">
+					<div class="col-md-12">
+						<h3>Clasificación</h3>
+						<div class="linea-centro"></div>
+					</div>
+					<div class="col-md-12">
+						<div class="clasificacion col-md-4 col-sm-12 col-xs-12">
+							<div ng-repeat="posicion in rankingDivision | orderBy: ['puntos', 'porcentajeVictorias']">
+								<span ng-if="posicion._id == datosUsuario._id" in-view="porDiv={{$index+1}}" counter value="autoStartVar5" to="porDiv" duration="500">{{ autoStartVar5 | number:0 }}º</span>
+							</div>
+							<p>Por división</p>
+						</div>
+						<div class="clasificacion col-md-4 col-sm-12 col-xs-12">
+							<div ng-repeat="posicion in rankingGlobal | orderBy: ['puntos', 'porcentajeVictorias']">
+								<span ng-if="posicion._id == datosUsuario._id" in-view="global={{$index+1}}" counter value="autoStartVar6" to="global" duration="500">{{ autoStartVar6 | number:0 }}º</span>
+							</div>
+							<p>Global</p>
+						</div>
+						<div class="clasificacion col-md-4 col-sm-12 col-xs-12">
+							<div ng-repeat="posicion in parejasDivision | orderBy: ['puntos', 'porcentajeVictorias']">
+								<span ng-if="posicion.id_jugador1 == datosUsuario._id || posicion.id_jugador2 == datosUsuario._id" in-view="porParejas={{$index+1}}" counter value="autoStartVar7" to="porParejas" duration="500">{{ autoStartVar7 | number:0 }}º</span>
+							</div>
+							<span ng-if="!parejaUsuario" class="añadir"><a href="/usuario/editarPerfil">Sin pareja</a></span>
+							<p>Por parejas (División)</p>
+						</div>
+					</div>
+				</div>
+				<div class="row trofeos text-center">
+					<div class="col-md-12">
+						<h3>Sala de Trofeos</h3>
+						<div class="linea-centro"></div>
+					</div>
+					<div class="col-md-12">
+						<div class="row">
+							<div id="carousel" class="sliderMunicipios">
+						        <div class="owl-carousel sliderTrofeos">
+						            <div class="slide trofeo text-center">
+						            	<img src="/assets/images/oro.png">
+										<p class="titulo-trofeo">Ganador Torneo San Sebastián</p>
+										<p class="subtitulo-trofeo">4ª División</p>
+						            </div>
+						            <div class="slide trofeo">
+						            	<img src="/assets/images/plata.png">
+										<p class="titulo-trofeo">Finalista Torneo Head</p>
+										<p class="subtitulo-trofeo">4ª División</p>
+						            </div>
+						            <div class="slide trofeo">
+						            	<img src="/assets/images/bronce.png">
+										<p class="titulo-trofeo">Semifinalista Torneo Master</p>
+										<p class="subtitulo-trofeo">4ª División</p>
+						            </div>
+						            <div class="slide trofeo">
+						            	<img src="/assets/images/placa.png">
+										<p class="titulo-trofeo">2ª Ronda Torneo Semana Santa</p>
+										<p class="subtitulo-trofeo">4ª División</p>
+						            </div>
+						        </div>
+				    		</div>
+				    	</div>
+					</div>
+				</div>
+			</div>
+			<div id="partidos" class="tab-pane fade col-md-12">
+				<div class="row partidosJugados text-center">
+					<div class="col-md-12">
+						<h3>Partidos Jugados</h3>
+						<p>(Últimos 5 partidos)</p>
+						<div class="linea-centro"></div>
+					</div>
+					<div class="partido col-md-4 text-center">
+					<p class="fecha-partido">30/05/2016</p>
+						<img src="/assets/images/pista.png">
+						<p class="ganado">Ganado</p>
+					</div>
+					<div class="partido col-md-4 text-center">
+						<p class="fecha-partido">28/05/2016</p>
+						<img src="/assets/images/pista.png">
+						<p class="perdido">Perdido</p>
+					</div>
+					<div class="partido col-md-4 text-center">
+						<p class="fecha-partido">27/05/2016</p>
+						<img src="/assets/images/pista.png">
+						<p class="ganado">Ganado</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

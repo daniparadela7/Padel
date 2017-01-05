@@ -1,0 +1,37 @@
+.editar-perfil{
+	padding: 30px 0;
+	input{
+		max-height: 44px;
+	}
+	.carga-imagen{
+		width: 150px;
+		height: 150px;
+	}
+	.delete{
+		font-size: 19px;
+		color: #DB524B;
+		cursor: pointer;
+	}
+	label{
+		&.pareja{
+			cursor: pointer;
+		    width: 160px;
+		    margin: 6px;
+		    border-radius: 4px;
+		    border: 1px solid #D0D0D0;
+		    overflow:auto;
+		    text-align:center;
+		    span{
+			    font-size: 14px;
+			    display:block;
+			    padding: 8px 0;
+			    background-color:#333;
+				color:#fff;
+				&:hover{
+					background-color:#B5232D;
+					color:#fff;
+				}
+		    }
+		}
+	}
+}

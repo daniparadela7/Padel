@@ -1,0 +1,29 @@
+<section class="login">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-lock"></i>Entrar</h2>
+				<p class="subtitulo-pagina"></p>
+			</div>
+
+			<div class="col-md-offset-1 col-md-10">
+				<form class="form-login" class="form-registro" ng-submit="login.login()" method="post" role="form">
+	        		<div class="input-registro">
+	                    <label>Email:</label>
+	                    <input type="email" class="form-control" ng-model="login.email" autofocus required>
+	                </div>
+	                <div class="input-registro">
+                    	<label>Contraseña:</label>
+                    	<input type="password" class="form-control" ng-model="login.password" required>
+                	</div>
+                	<label class="checkbox text-center">
+		                <a href="">He olvidado mi contraseña</></a>
+		            </label>
+                	<div class="col-md-12 boton-form text-center">
+                        <button class="btn btn-lg btn-primary" type="submit">Entrar</button>
+                    </div>
+	            </form>
+			</div>
+		</div>
+	</div>
+</section>

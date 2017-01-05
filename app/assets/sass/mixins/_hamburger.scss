@@ -1,0 +1,312 @@
+html, body {
+  -webkit-font-smoothing: antialiased;
+  &.menu-mobile-in {
+    height: 100%;
+    overflow: hidden !important;
+  }
+
+}
+
+.header { 
+  position: absolute;
+  top: 0;
+  width: 100%;
+  a {
+    &:focus, &:active, &:hover {
+      text-decoration: none; 
+    } 
+  }
+
+  .cl-effect-5 {
+    li {
+      overflow: hidden;
+      a {
+        overflow: hidden;
+        padding: 0 4px;
+        height: 1em;
+        cursor: pointer;
+
+        &:hover, &:focus {
+          span {
+            -webkit-transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+            transform: translateY(-100%);
+          }
+        }
+
+        span {
+          position: relative;
+          display: inline-block;
+          font-size: 36px;
+          -webkit-transition: -webkit-transform 0.3s;
+          -moz-transition: -moz-transform 0.3s;
+          transition: transform 0.3s;
+          background: transparent;
+          padding-left: 0;
+
+          &::before {
+            position: absolute;
+            top: 100%;
+            content: attr(data-hover);
+            font-weight: 700;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+          }
+        }
+      }
+    }
+  }
+
+  ul{
+    color: #fff;
+    padding: 0;
+    padding-top: 18px;
+    li{
+      list-style-type: none;
+      margin-top: 2px;  
+      padding-right: 15px;
+      span {
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 3px 7px 7px 7px;
+        background-color: #000;
+        color: #fff;
+        text-transform: uppercase;
+        @media screen and (max-width: 991px){ 
+          font-size: 18px;
+          padding: 2px 7px 5px 7px;
+        }
+      }
+      a{
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .navbar-toggle{
+    @media screen and (max-width: 991px){
+      display: block;
+      position: absolute;
+      right: 30px;
+      border: none;
+      top: 20px; 
+      z-index: 999999;
+    }
+    &.closeMenu {
+      font-size: 60px; 
+      top: 0;
+      padding-top: 4px;
+      @media screen and (max-width: 480px){ 
+          padding-top: 0;
+          margin: 0 5px 9px 10px;
+            position: fixed;
+          span {
+          }
+      }
+        
+      span {
+        color: #BBB; 
+        font-size: 80px; 
+        margin-top: 0; 
+        line-height: 80px !important
+      }
+    }
+    .icon-bar {
+      display: block;
+      height: 3px;
+      background-color: #111;
+      width: 35px;
+      @media screen and (max-width: 991px){ 
+        width: 25px;
+      }
+      + .icon-bar {
+          margin-top: 5px;
+      }
+    }
+
+  }
+
+  .overlay-menu {
+    position: absolute;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background-image: url('/assets/images/bg-menu.png');
+    background-repeat: no-repeat;
+    width: 50%;
+    background-position: bottom right;
+  }
+}
+
+.headerBG {
+  width: 100%; 
+  height: 100%; 
+  position: absolute; 
+  top: 0; 
+  z-index: 999998;
+  opacity: 1;
+  background: rgba(219, 1, 1, 0.9);
+  left: 0px;
+  @media screen and (min-width: 768px){ 
+      left: 0;
+  }
+  @media screen and (max-width: 480px){ 
+      display: block;
+      overflow: auto;
+      right: 0;
+      left: 0;
+      bottom: 0;
+  }
+    
+  .menuContent {
+    padding-top: 15%;
+    @media screen and (max-width: 767px){ 
+        padding-top: 25%;
+    }
+    @media screen and (max-width: 480px) and (orientation: portrait){ 
+        padding-top: 15%;
+        padding-left: 3%;
+    }
+
+    @media screen and (max-width: 480px) and (orientation: landscape){ 
+        padding-top: 5%;
+        overflow: auto;
+        padding-left: 25%;
+    }
+      
+    label {
+      font-family: 'Droid Sans', sans-serif;
+      color: #BD5DB1;
+      padding-bottom: 5px;
+      font-size: 18px; 
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: 1px solid white;
+      border-width: thin;
+      font-weight: 400;
+      @media screen and (max-width: 480px){ 
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    ul {
+      padding-top: 15px;
+      li {
+        text-align: center;
+        padding-bottom: 15px;
+        a {
+          color: #ffffff;
+          font-size: 27px;
+          line-height: 28px;
+          @media screen and (max-width: 480px){
+            padding-left: 0 !important;
+              padding-left: 20px;
+              line-height: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.headerBG.ng-hide-add { 
+  animation:1s slideOutRight ease; 
+}
+.headerBG.ng-hide-remove { 
+  animation:1s slideInRight ease; 
+}
+
+/*
+
+  HAMBURGER ICONS COMPONENT
+  
+*/
+
+$button-width: 40px;                  // The width of the button area
+$button-height: 40px;                 // The height of the button area
+$bar-thickness: 2px;                  // The thickness of the button bars
+$button-padding: 2px;                 // The left/right padding between button area and bars.
+$button-bar-space: 3px;               // The spacing between button bars
+$button-transistion-duration: 0.8s;     // The transition duration
+$beginningHamburgerColor: #fff; 
+$finalHamburgerColor: #fff;
+
+.c-hamburger {
+  @media screen and (max-width: 991px){
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: $button-width;
+    height: $button-height;
+    font-size: 0;
+    text-indent: -9999px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background $button-transistion-duration;
+  }
+  &:focus {
+    outline: none;  
+  }
+  span {
+    display: block;
+    position: absolute;
+    top: ($button-height / 2) - ($bar-thickness / 2);
+    left: $button-padding;
+    right: $button-padding;
+    height: $bar-thickness;
+    background: $beginningHamburgerColor;
+    transition: background 0s $button-transistion-duration;
+    &::before, &::after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: $bar-thickness;
+      background-color: $beginningHamburgerColor;
+      content: "";
+      transition-duration: $button-transistion-duration, $button-transistion-duration;
+      transition-delay: $button-transistion-duration, 0s;
+    }
+  }
+}
+ 
+.c-hamburger span::before {
+  top: -$bar-thickness - $button-bar-space;
+  transition-property: top, transform;
+}
+
+.c-hamburger span::after { 
+  bottom: -$bar-thickness - $button-bar-space;
+  transition-property: bottom, transform;
+}
+
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, $button-transistion-duration;
+  background: $finalHamburgerColor;
+}

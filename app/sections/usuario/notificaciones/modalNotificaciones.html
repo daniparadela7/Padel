@@ -1,0 +1,27 @@
+<div class="modalNotificaciones">
+    <div class="modal-header">
+        <h3 class="modal-title">Notificaciones</h3>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive" ng-if="notificaciones.length > 0">
+            <table class="table">
+                <tr>
+                    <th class="col-md-3">Fecha</th>
+                    <th class="col-md-7">Asunto</th>
+                    <th class="col-md-1">Leer</th>
+                    <th class="col-md-1">Eliminar</th>
+                </tr>
+                <tr ng-repeat="notificacion in notificaciones | orderBy: '-fecha_registro'" ng-class="{'negrita': notificacion.leido == false}">
+                    <td>{{notificacion.fecha_notificacion}}</td>
+                    <td ng-class="{ 'confirmado': notificacion.estado == 'Confirmado', 'pendiente': notificacion.estado == 'Pendiente', 'cancelado': notificacion.estado == 'Cancelado'}">{{notificacion.title}}</td>
+                    <td><i class="fa fa-envelope" ng-click="openNotificacion('lg', notificacion._id)"></i></td>
+                    <td><i class="delete fa fa-close" ng-click="eliminarNotificacion(notificacion._id)"></i></td>
+                </tr>
+            </table>
+        </div>
+        <p class="text-center" ng-if="notificaciones.length == 0">No tienes notificaciones en este momento.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="cerrar()" type="submit">Aceptar</button>
+    </div>
+</div>

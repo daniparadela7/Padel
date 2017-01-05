@@ -1,0 +1,18 @@
+.registro{
+	padding: 30px 0;
+	.botones-modalidad{
+		display: inline-block;
+		padding-top: 10px;
+		i{
+			font-size: 40px;
+			padding-bottom: 10px;
+		}
+	}
+	input{
+		max-height: 44px;
+	}
+	.carga-imagen{
+		max-width: 100px;
+		max-height: 100px;
+	}
+}

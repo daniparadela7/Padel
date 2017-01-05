@@ -1,0 +1,74 @@
+<section class="editar-perfil">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="titulo-pagina"><i class="fa fa-gear"></i>Editar perfil</h2>
+			</div>
+
+			<div class="col-md-offset-1 col-md-10">
+				<form class="form-registro" role="form">
+					<div class="form-group">
+		                <div class="input-registro col-md-5">
+		                    <label>Nombre:</label>
+		                    <input type="text" class="form-control" ng-model="user.nombre" required>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>Apellido:</label>
+		                    <input type="text" class="form-control" ng-model="user.apellido" required>
+		                </div>
+	            	</div>
+	            	<div class="form-group">
+		                <div class="input-registro col-md-5">
+		                    <label>Fecha de nacimiento:</label>
+		                    <input type="date" class="form-control" ng-model="user.fecha" required>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                    <label>Teléfono:</label>
+		                    <input type="text" class="form-control" ng-model="user.telefono" required>
+		                </div>
+		            </div>
+		            <div class="form-group">
+		              	<div class="input-registro col-md-5">
+		                	<label>Pista favorita:</label>
+		                    <input type="text" class="form-control" ng-model="user.pista" required>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+		                	<label>Posición:</label>
+		                    <select class="form-control" ng-model="user.posicion">
+		                        <option value="">Selecciona una posición</option>
+		                        <option value="Drive">Drive</option>
+		                        <option value="Revés">Revés</option>
+		                        <option value="Ambos">Ambos</option>
+		                	</select>
+		                </div>
+		        	</div>
+		        	<div class="form-group">
+		        		<div class="input-registro col-md-5">
+		                	<label>Pareja:</label>
+		                	<p ng-show="parejaUsuario">{{parejaUsuario.nombre}} {{parejaUsuario.apellido}}<br><label class="pareja" ng-click="eliminarPareja()"><span>Eliminar pareja</span></label></p>
+		                	<p ng-show="solicitudParejaUsuario">Solicitud enviada a {{solicitudParejaUsuario.nombre}} {{solicitudParejaUsuario.apellido}}<label class="pareja" ng-click="eliminarSolicitudPareja()"><span>Eliminar solicitud</span></label></p>
+		                	<div ng-show="!parejaUsuario && !solicitudParejaUsuario">
+			                    <input type="text" ng-model="solicitudPareja" placeholder="Escribe el nombre de tu pareja" uib-typeahead="pareja as pareja.nombre for pareja in usuariosParejaDisponibles | filter:$viewValue | limitTo:5" typeahead-loading="cargandoJugadores" typeahead-no-results="noResultados" class="form-control">
+							    <i ng-show="cargandoJugadores" class="glyphicon glyphicon-refresh"></i>
+							    <div ng-show="noResultados">
+							    	<span>No se encuentran resultados</span>
+							    </div>
+							</div>
+		                </div>
+		                <div class="input-registro col-md-offset-2 col-md-5">
+	                    	<label>Foto de Perfil:</label>
+	                    	<input type="file" ng-model="user.image" base-sixty-four-input>
+                    		<span ng-show="form.files.$error.maxsize">La imagen no puede ocupar más de 9000 KB</span>
+	                	</div>
+	                	<div class="input-registro col-md-offset-2 col-md-5">
+	                		<img  ng-show="user.image != undefined" ng-src="{{'data:' + user.image.filetype + ';base64,' + user.image.base64}}" class="carga-imagen profile-image img-circle">
+	                	</div>
+                	</div>
+                	<div class="col-md-12 boton-form text-center">
+                        <button class="btn btn-lg btn-primary" ng-click="modificarPerfil()" type="submit">Confirmar cambios</button>
+                    </div>
+	            </form>
+			</div>
+		</div>
+	</div>
+</section>

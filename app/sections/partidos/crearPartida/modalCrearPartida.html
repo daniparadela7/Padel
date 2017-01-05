@@ -1,0 +1,66 @@
+<div class="modalCrearPartida">
+    <div class="modal-header">
+        <h3 class="modal-title">Crear partida personalizada: Información básica</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 configuracion-inicial">
+                    <div class="input-registro col-md-5">
+                    <label><i class="fa fa-calendar"></i> Fecha:</label>
+                        <input id="datetimepicker1" datepicker ng-model="fecha_partida" type='text' class="form-control" required />
+                    </div>
+                    <div class="input-registro col-md-offset-1 col-md-6">
+                        <label><i class="fa fa-clock-o"></i> Franja horaria en la que puedes EMPEZAR el partido:</label>
+                        <span class="col-md-2 text-center">De </span>
+                        <select class="form-control hora col-md-4">
+                            <option value="">Hora</option>
+                            <option value="1">12:30</option>
+                             <option value="1">13:00</option>
+                             <option value="1">13:30</option>
+                        </select>
+                        <span class="col-md-2 text-center">a </span>
+                        <select class="form-control hora col-md-4">
+                            <option value="">Hora</option>
+                            <option value="1">15:30</option>
+                             <option value="1">16:00</option>
+                             <option value="1">16:30</option>
+                        </select>
+                    </div>
+                    <div class="input-registro col-md-5">
+                        <label><i class="fa fa-users"></i> Divisiones permitidas:</label>
+                        <select class="form-control">
+                            <option value="">Selecciona una división</option>
+                            <option value="1">3ª y 4ª división</option>
+                            <option value="2">4ª división</option>
+                            <option value="3">4ª y 5ª división</option>
+                        </select>
+                    </div>
+                    <div class="input-registro col-md-offset-1 col-md-6">
+                        <label><i class="fa fa-star"></i> Modalidad:</label><br>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn boton-select text-center">
+                                <input type="radio" name="options" id="option1" autocomplete="off">
+                                <div class="botones-modalidad text-center col-md-12">
+                                    <i class="fa fa-male"></i>
+                                    <p>Masculino</p>
+                                </div>
+                            </label>
+                            <label class="btn boton-select text-center">
+                                <input type="radio" name="options" id="option2" autocomplete="off">
+                                <div class="botones-modalidad text-center col-md-12"> 
+                                    <i class="fa fa-male"></i>
+                                    <i class="fa fa-female"></i>
+                                    <p>Mixto</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="openCrearPartidaTipo('lg')" type="submit">Siguiente</button>
+    </div>
+</div>
